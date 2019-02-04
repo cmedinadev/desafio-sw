@@ -2,7 +2,6 @@ package br.com.cmedina.starwars.test.dao;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -15,6 +14,7 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 
 import com.mongodb.MongoClient;
+import com.mongodb.WriteResult;
 import com.mongodb.client.MongoDatabase;
 
 import br.com.cmedina.starwars.dao.PlanetaDAO;
@@ -68,9 +68,9 @@ public class PlanetaDAOTest {
 	
 	@Test
 	public void zzExcluirPlaneta() throws Exception {
-		dao.deleteById(planeta.getId());
 		Planeta p = dao.findOne("id", planeta.getId());
-		assertNull("Planeta não foi excluído", p);
+		WriteResult r = dao.delete(p);
+		assertTrue("Planeta não foi excluído", r.getN() > 0);
 	}
 	
 	

@@ -26,7 +26,7 @@ public class ConnectionFactory {
 			this.openConnection();
 		}
 		Morphia morphia = new Morphia();
-		morphia.mapPackage("br.com.cmedina.starwars");
+		morphia.mapPackage("br.com.cmedina.starwars.entity");
 		datastore = morphia.createDatastore(mongoClient, "starwars");
 		datastore.ensureIndexes();
 	}

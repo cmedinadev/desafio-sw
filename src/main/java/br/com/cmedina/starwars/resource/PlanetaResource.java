@@ -30,28 +30,28 @@ import br.com.cmedina.starwars.dto.SWModelListDTO;
 import br.com.cmedina.starwars.entities.Planeta;
 
 
-@Path("/")
+@Path("/planetas")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
 public class PlanetaResource {
 
 	PlanetaDAO planetaDAO = new PlanetaDAO();
 	
     @GET
-    @Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
-    @Path("/planetas")
     public Response getPlanetas() {
         return Response.ok(planetaDAO.find().asList()).build();
     }
     
     @GET
-    @Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
-    @Path("/planetas/{id}")
+    @Path("/{id}")
     public Response getPlanetaById(@PathParam("id") String id) {
-        return Response.ok(planetaDAO.get(new ObjectId(id))).build();
+    	Planeta p = planetaDAO.get(new ObjectId(id));
+    	if (p == null)
+    		return Response.status(Response.Status.NOT_FOUND).build();	
+        return Response.ok(p).build();
     }
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/planetas")
     public Response incluirPlaneta(Planeta planeta, @Context UriInfo uriInfo) throws KeyManagementException, NoSuchAlgorithmException {
     	
     	String uri = "https://swapi.co/api/planets/";
@@ -72,26 +72,25 @@ public class PlanetaResource {
     	planetaDAO.save(planeta);
     	
     	UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-        builder.path(planeta.getId());
+        builder.path(planeta.getId().toString());
         return Response.created(builder.build()).build();
         
     }
     
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
-    @Path("/planetas/{id}")
+    @Path("/{id}")
     public Response alterarPlaneta(@PathParam("id") String id, Planeta planeta) {
     	planetaDAO.save(planeta);
         return Response.ok(planeta).build();
     }
     
     @DELETE
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
-    @Path("/planetas/{id}")
+    @Path("/{id}")
     public Response excluirPlaneta(@PathParam("id") String id) {
-    	planetaDAO.deleteById(id);
+    	Planeta p = planetaDAO.get(new ObjectId(id));
+    	if (p == null)
+    		return Response.status(Response.Status.NOT_FOUND).build();	
+    	planetaDAO.delete(p);
         return Response.noContent().build();
     }
     

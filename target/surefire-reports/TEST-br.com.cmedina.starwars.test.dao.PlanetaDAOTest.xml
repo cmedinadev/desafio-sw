@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" time="0.098" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" time="0.099" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_151\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\ps16704\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7792203405070053789.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\ps16704\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3453826161543668881.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_151/bin/server;C:/Program Files/Java/jre1.8.0_151/bin;C:/Program Files/Java/jre1.8.0_151/lib/amd64;C:\Program Files (x86)\Embarcadero\Studio\18.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\18.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\18.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\18.0\Bpl\Win64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\CodeGear\RAD Studio\5.0\bin;C:\Users\Public\Documents\RAD Studio\5.0\Bpl;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Administrador\AppData\Local\Microsoft\WindowsApps;C:\Users\redeinfpa\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Hyland\Web ActiveX\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\TortoiseSVN\bin;C:\PROGRA~2\IBM\CLIENT~1;C:\PROGRA~2\IBM\CLIENT~1\Shared;C:\PROGRA~2\IBM\CLIENT~1\Emulator;D:\apache-maven-3.5.0\bin;C:\Progra~1\Java\jdk1.8.0_131\jre\bin;%CATALINA_HOME%\lib;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\ps16704\AppData\Local\Microsoft\WindowsApps;F:\PUBLIC\oracle\product\11.2.0\client_1\bin;C:\Users\ps16704\AppData\Roaming\npm;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\IDM Computer Solutions\UltraEdit;C:\Program Files\PuTTY\;D:\instantclient_18_3;F:\PUBLIC\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\CodeGear\RAD Studio\5.0\bin;C:\Users\Public\Documents\RAD Studio\5.0\Bpl;C:\Windows\system32;C:\Windows;C:\Program Files\nodejs\;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Administrador\AppData\Local\Microsoft\WindowsApps;C:\Users\redeinfpa\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Hyland\Web ActiveX\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\TortoiseSVN\bin;C:\PROGRA~2\IBM\CLIENT~1;C:\PROGRA~2\IBM\CLIENT~1\Shared;C:\PROGRA~2\IBM\CLIENT~1\Emulator;D:\apache-maven-3.5.0\bin;%CATALINA_HOME%\lib;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\ps16704\AppData\Local\Microsoft\WindowsApps;F:\PUBLIC\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\Microsoft VS Code\bin;D:\Android\android-sdk\tools;D:\Android\android-sdk\platform-tools;C:\Gradle\gradle-3.5\bin;C:\Users\ps16704\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Users\ps16704\AppData\Roaming\npm;C:\Python27;D:\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,8 +60,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="aaInserirPlaneta" time="0.055"/>
+  <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="aaInserirPlaneta" time="0.057"/>
   <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="bbRecuperarPlanetas" time="0.023"/>
-  <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="ccAlterarPlaneta" time="0.016"/>
+  <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="ccAlterarPlaneta" time="0.015"/>
   <testcase classname="br.com.cmedina.starwars.test.dao.PlanetaDAOTest" name="zzExcluirPlaneta" time="0.004"/>
 </testsuite>

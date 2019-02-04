@@ -3,22 +3,14 @@ package br.com.cmedina.starwars.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.json.bind.annotation.JsonbProperty;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@XmlRootElement
 public class PlanetDTO implements Serializable {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	@Override
-	public String toString() {
-		return "PlanetDTO [name=" + name + ", diameter=" + diameter + ", gravity=" + gravity + ", population="
-				+ population + ", climate=" + climate + ", terrain=" + terrain + ", created=" + created + ", edited="
-				+ edited + ", url=" + url + ", rotationPeriod=" + rotationPeriod + ", orbitalPeriod=" + orbitalPeriod
-				+ ", surfaceWater=" + surfaceWater + ", residentsUrls=" + residentsUrls + ", filmsUrls=" + filmsUrls
-				+ "]";
-	}
+	private static final long serialVersionUID = 1L;
 
 	public String name;
     public String diameter;
@@ -30,19 +22,28 @@ public class PlanetDTO implements Serializable {
     public String edited;
     public String url;
 
-    @JsonbProperty("rotation_period")
+    @JsonProperty("rotation_period")
     public String rotationPeriod;
 
-    @JsonbProperty("orbital_period")
+    @JsonProperty("orbital_period")
     public String orbitalPeriod;
 
-    @JsonbProperty("surface_water")
+    @JsonProperty("surface_water")
     public String surfaceWater;
 
-    @JsonbProperty("residents")
+    @JsonProperty("residents")
     public List<String> residentsUrls;
 
-    @JsonbProperty("films")
+    @JsonProperty("films")
     public List<String> filmsUrls;
-   
+ 
+	@Override
+	public String toString() {
+		return "PlanetDTO [name=" + name + ", diameter=" + diameter + ", gravity=" + gravity + ", population="
+				+ population + ", climate=" + climate + ", terrain=" + terrain + ", created=" + created + ", edited="
+				+ edited + ", url=" + url + ", rotationPeriod=" + rotationPeriod + ", orbitalPeriod=" + orbitalPeriod
+				+ ", surfaceWater=" + surfaceWater + ", residentsUrls=" + residentsUrls + ", filmsUrls=" + filmsUrls
+				+ "]";
+	}    
+    
 }

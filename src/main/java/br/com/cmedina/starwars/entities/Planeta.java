@@ -1,14 +1,19 @@
 package br.com.cmedina.starwars.entities;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 @Entity("planetas")
 public class Planeta {
 
 
 	@Id
-	private String id;
+	@JsonSerialize(using = ToStringSerializer.class)
+	private ObjectId id;
 	private String nome;
 	private String clima;
 	private String terreno;
@@ -18,7 +23,7 @@ public class Planeta {
 		
 	}
 	
-	public Planeta(String id, String nome, String clima, String terreno, int quantAparicoes) {
+	public Planeta(ObjectId id, String nome, String clima, String terreno, int quantAparicoes) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -51,20 +56,11 @@ public class Planeta {
 	public void setQuantAparicoes(int quantAparicoes) {
 		this.quantAparicoes = quantAparicoes;
 	}
-	public String getId() {
-		return id;//objectId != null ? objectId.toString() : null;
+	public ObjectId getId() {
+		return id;
 	}
-	public void setId(String id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
-	/*
-	public ObjectId getObjectId() {
-		return objectId;
-	}
-	public void setObjectId(ObjectId objectId) {
-		this.objectId = objectId;
-	}
-	*/
-	
 	
 }
