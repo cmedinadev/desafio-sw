@@ -1,8 +1,5 @@
 package br.com.cmedina.starwars.resource;
 
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -11,6 +8,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -30,7 +28,7 @@ import br.com.cmedina.starwars.dto.SWModelListDTO;
 import br.com.cmedina.starwars.entities.Planeta;
 
 
-@Path("/planetas")
+@Path("planetas")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON+";charset=utf-8")
 public class PlanetaResource {
@@ -38,7 +36,10 @@ public class PlanetaResource {
 	PlanetaDAO planetaDAO = new PlanetaDAO();
 	
     @GET
-    public Response getPlanetas() {
+    public Response getPlanetas(@QueryParam("nome") String nome) {
+    	if (nome != null)
+    		return Response.ok(planetaDAO.createQuery().field("nome").contains(nome).asList()).build();
+    	
         return Response.ok(planetaDAO.find().asList()).build();
     }
     
@@ -52,7 +53,7 @@ public class PlanetaResource {
     }
     
     @POST
-    public Response incluirPlaneta(Planeta planeta, @Context UriInfo uriInfo) throws KeyManagementException, NoSuchAlgorithmException {
+    public Response incluirPlaneta(Planeta planeta, @Context UriInfo uriInfo) {
     	
     	String uri = "https://swapi.co/api/planets/";
         
@@ -65,9 +66,8 @@ public class PlanetaResource {
     	
     	SWModelListDTO<PlanetDTO> res = response.readEntity(new GenericType<SWModelListDTO<PlanetDTO>>(){});
     	PlanetDTO planet = res.results.get(0);  
-
-    	if (planet != null) 
-    		planeta.setQuantAparicoes(planet.filmsUrls.size());
+    	
+    	planeta.setQuantAparicoes(planet != null ? planet.filmsUrls.size() : 0);
     	
     	planetaDAO.save(planeta);
     	

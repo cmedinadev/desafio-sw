@@ -2,12 +2,8 @@ package br.com.cmedina.starwars.dto;
 
 import java.io.Serializable;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@XmlRootElement
 public class PlanetDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
